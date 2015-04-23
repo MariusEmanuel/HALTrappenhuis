@@ -4,4 +4,11 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <string name="van_spinner_prompt">Waar ben je:</string>
+    <string name="naar_spinner_prompt">Waar wil je naartoe:</string>
+    <string-array name="lokalen_array">
+        <item>Aula</item>
+        <item>Lokaal 11</item>
+        <item>Lokaal A1</item>
+    </string-array>
 </resources>

@@ -41,14 +41,16 @@
                 android:gravity="center"
                 android:layout_marginTop="25dp"/>
 
-            <EditText
-                android:id="@+id/van"
+            <Spinner
+                android:id="@+id/van_spinner"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
                 android:layout_gravity="center_horizontal"
+                android:spinnerMode="dialog"
+                android:prompt="@string/van_spinner_prompt"
+                android:entries="@array/lokalen_array"
                 android:gravity="center"/>
+
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
@@ -57,13 +59,14 @@
                 android:gravity="center"
                 android:layout_marginTop="25dp"/>
 
-            <EditText
-                android:id="@+id/naar"
+            <Spinner
+                android:id="@+id/naar_spinner"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:inputType="number"
-                android:ems="10"
                 android:layout_gravity="center_horizontal"
+                android:prompt="@string/naar_spinner_prompt"
+                android:spinnerMode="dialog"
+                android:entries="@array/lokalen_array"
                 android:gravity="center"/>
 
         </LinearLayout>
