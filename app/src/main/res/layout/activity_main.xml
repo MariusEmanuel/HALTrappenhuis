@@ -69,6 +69,16 @@
                 android:entries="@array/lokalen_array"
                 android:gravity="center"/>
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ga"
+                android:id="@+id/ga_button"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"
+                android:textAllCaps="false"/>
+
+
         </LinearLayout>
 
     </ScrollView>
