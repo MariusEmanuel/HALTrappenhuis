@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
-                android:text="Het Trappenhuis!"
+                android:text="@string/titel"
                 android:textSize="30sp"
                 android:textColor="#fff"
                 android:gravity="center"/>
@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
-                android:text="Waar kom je vandaan?"
+                android:text="@string/vanTekst"
                 android:textColor="#fff"
                 android:gravity="center"
                 android:layout_marginTop="25dp"/>
@@ -54,7 +54,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="40dp"
-                android:text="Waar wil je naartoe?"
+                android:text="@string/naarTekst"
                 android:textColor="#fff"
                 android:gravity="center"
                 android:layout_marginTop="25dp"/>

@@ -11,4 +11,7 @@
         <item>Lokaal 11</item>
         <item>Lokaal A1</item>
     </string-array>
+    <string name="naarTekst">Waar wil je naartoe?</string>
+    <string name="vanTekst">Waar kom je vandaan?</string>
+    <string name="titel">Het Trappenhuis!</string>
 </resources>
