@@ -1,17 +1,47 @@
 package co.birkhoff.haltrappenhuis;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Spinner;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    @Override
+    private static final String TAG = "MainActivity";
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Widgets:
+        final Spinner vanSpinner = (Spinner) findViewById(R.id.van_spinner);
+        final Spinner naarSpinner = (Spinner) findViewById(R.id.naar_spinner);
+        Button gaButton = (Button) findViewById(R.id.ga_button);
+
+
+        gaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String van = vanSpinner.getSelectedItem().toString();
+                String naar = naarSpinner.getSelectedItem().toString();
+                Log.v(TAG, "van:" + van +"\n naar:" + naar);
+
+                //Open activity Route
+
+                Intent intent = new Intent(MainActivity.this, Route.class);
+                intent.putExtra("van",van);
+                intent.putExtra("naar", naar);
+                startActivity(intent);
+
+
+            }
+        });
     }
 
 
