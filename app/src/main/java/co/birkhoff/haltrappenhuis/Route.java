@@ -21,7 +21,22 @@ public class Route extends ActionBarActivity {
 
         TextView data = (TextView) findViewById(R.id.data);
 
-        data.setText("van: " + van + "\nnaar: " + naar);
+        //data.setText("van: " + van + "\nnaar: " + naar);
+
+
+
+        String json = "{\n" +
+                "    lokalen: [\n" +
+                "        {nummer: 1, naam: \"Lokaal 1\", \"etage\": 4, schooldeel: \"midden\", zijde: \"zuid\"},\n" +
+                "        {nummer: 2, naam: \"Lokaal 2\", \"etage\": 4, schooldeel: \"midden\", zijde: \"zuid\"},\n" +
+                "        {nummer: 3, naam: \"Lokaal 3\", \"etage\": 4, schooldeel: \"midden\", zijde: \"zuid\"},\n" +
+                "        {nummer: 4, naam: \"Lokaal 4\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"},\n" +
+                "        {nummer: 5, naam: \"Lokaal 5\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"},\n" +
+                "        {nummer: 6, naam: \"Lokaal 6\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"}\n" +
+                "    ]\n" +
+                "}";
+
+        data.setText(json);
     }
 
 

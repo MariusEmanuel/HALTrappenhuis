@@ -15,6 +15,7 @@ public class MainActivity extends ActionBarActivity {
 
     private static final String TAG = "MainActivity";
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -37,6 +38,8 @@ public class MainActivity extends ActionBarActivity {
                 Intent intent = new Intent(MainActivity.this, Route.class);
                 intent.putExtra("van",van);
                 intent.putExtra("naar", naar);
+
+
                 startActivity(intent);
 
 
