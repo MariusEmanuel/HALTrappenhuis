@@ -2,10 +2,14 @@ package co.birkhoff.haltrappenhuis;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 
@@ -37,6 +41,26 @@ public class Route extends ActionBarActivity {
                 "}";
 
         data.setText(json);
+
+        try {
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray lokalen = jsonObject.getJSONArray("lokalen");
+            String lokalenString = lokalen.toString();
+
+            String classroomOnezijde = lokalen.getJSONObject(0).getString("zijde");
+
+            //data.setText(classroomOnezijde);
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        Lokalen lokalen = new Lokalen();
+        Lokalen test = lokalen.search("Lokaal 1");
+        Log.d("tag", test.naam);
+        data.setText(test.naam);
     }
 
 
