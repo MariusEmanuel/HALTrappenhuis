@@ -9,6 +9,8 @@ import org.json.JSONObject;
 /**
  * Created by emanuelkuhn on 12-05-15.
  */
+
+@Deprecated
 public class Lokalen {
 
     private final String TAG = "Lokalen";
@@ -33,11 +35,13 @@ public class Lokalen {
             for (int i = 0; i < lokalen.length(); i++) {
                 Log.d("Lokalen", lokalen.getJSONObject(i).toString());
                 JSONObject lokaal = lokalen.getJSONObject(i);
-
+                String lokaalNaam =  lokaal.getString("naam");
                 Log.d("LokaalNaam", lokaal.getString("naam"));
 
-                if (lokaal.getString("naam") == "Lokaal 1") {
-                    this.naam = lokaal.getString("naam");
+                Log.d("TAG", lokaal.get("naam").toString());
+
+                if (lokaal.getString("naam").equals(naam)) {
+                    Log.d("tag", "found");
                     return this;
                 }
 

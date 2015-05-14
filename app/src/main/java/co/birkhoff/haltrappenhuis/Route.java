@@ -1,16 +1,10 @@
 package co.birkhoff.haltrappenhuis;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 
 public class Route extends ActionBarActivity {
@@ -25,42 +19,13 @@ public class Route extends ActionBarActivity {
 
         TextView data = (TextView) findViewById(R.id.data);
 
-        //data.setText("van: " + van + "\nnaar: " + naar);
+        //TODO: use van instead of "Lokaal 1"
+        Lokaal lokaalNaar = new Lokaal("Lokaal 2");
+        Lokaal lokaalVan = new Lokaal("Lokaal 1");
 
+        data.setText("schooldeel van: " + lokaalVan.schooldeel + "\nvan nummer: " + lokaalVan.nummer
+                      + "schooldeel naar: " + lokaalNaar.schooldeel + "\nnaar nummer: " + lokaalNaar.nummer);
 
-
-        String json = "{\n" +
-                "    lokalen: [\n" +
-                "        {nummer: 1, naam: \"Lokaal 1\", \"etage\": 4, schooldeel: \"midden\", zijde: \"zuid\"},\n" +
-                "        {nummer: 2, naam: \"Lokaal 2\", \"etage\": 4, schooldeel: \"midden\", zijde: \"zuid\"},\n" +
-                "        {nummer: 3, naam: \"Lokaal 3\", \"etage\": 4, schooldeel: \"midden\", zijde: \"zuid\"},\n" +
-                "        {nummer: 4, naam: \"Lokaal 4\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"},\n" +
-                "        {nummer: 5, naam: \"Lokaal 5\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"},\n" +
-                "        {nummer: 6, naam: \"Lokaal 6\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"}\n" +
-                "    ]\n" +
-                "}";
-
-        data.setText(json);
-
-        try {
-            JSONObject jsonObject = new JSONObject(json);
-            JSONArray lokalen = jsonObject.getJSONArray("lokalen");
-            String lokalenString = lokalen.toString();
-
-            String classroomOnezijde = lokalen.getJSONObject(0).getString("zijde");
-
-            //data.setText(classroomOnezijde);
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-        Lokalen lokalen = new Lokalen();
-        Lokalen test = lokalen.search("Lokaal 1");
-        Log.d("tag", test.naam);
-        data.setText(test.naam);
     }
 
 
