@@ -2,6 +2,7 @@ package co.birkhoff.haltrappenhuis;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -32,11 +33,28 @@ public class Route extends ActionBarActivity {
         TextView data = (TextView) findViewById(id.data);
 
         //TODO: use van instead of "Lokaal 1"
-        Lokaal lokaalNaar = new Lokaal("Lokaal 2");
+        Lokaal lokaalNaar = new Lokaal("Lokaal 7");
         Lokaal lokaalVan = new Lokaal("Lokaal 1");
 
-        data.setText("schooldeel van: " + lokaalVan.schooldeel + "\nvan nummer: " + lokaalVan.nummer
-                      + "schooldeel naar: " + lokaalNaar.schooldeel + "\nnaar nummer: " + lokaalNaar.nummer);
+
+
+        if(lokaalVan.etage != lokaalNaar.etage){
+            // Geen trappen!
+
+            int verschil = lokaalVan.nummer - lokaalNaar.nummer;
+            if(verschil < 0){
+                String richting = "omhoog";
+            }else{
+                String richting = "omlaag";
+            }
+
+            verschil = Math.abs(verschil);
+
+            while(verschil > 0){
+                Log.d("Marius", "Hallo?");
+            }
+
+        }
 
         
 

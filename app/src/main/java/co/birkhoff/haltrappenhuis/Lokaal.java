@@ -56,6 +56,7 @@ public class Lokaal {
             "        {nummer: 4, naam: \"Lokaal 4\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"},\n" +
             "        {nummer: 5, naam: \"Lokaal 5\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"},\n" +
             "        {nummer: 6, naam: \"Lokaal 6\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"}\n" +
+            "        {nummer: 7, naam: \"Lokaal 7\", \"etage\": 3, schooldeel: \"oost\", zijde: \"noord\"}\n" +
             "    ]\n" +
             "}";
 
