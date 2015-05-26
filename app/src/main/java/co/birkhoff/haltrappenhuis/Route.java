@@ -14,9 +14,9 @@ public class Route extends ActionBarActivity {
 
     static String calcRoute(Lokaal lokaalVan, Lokaal lokaalNaar) {
 
-        if (lokaalNaar.naam.equals(lokaalVan.naam)) {
-            return "Je benr er al";
-        }
+//        if (lokaalNaar.naam.equals(lokaalVan.naam)) {
+//            return "Je benr er al";
+//        }
 
 
         return null;
@@ -36,12 +36,13 @@ public class Route extends ActionBarActivity {
         Lokaal lokaalNaar = new Lokaal("Lokaal 7");
         Lokaal lokaalVan = new Lokaal("Lokaal 1");
 
+        Log.d("hallo", "line 39");
 
 
         if(lokaalVan.etage != lokaalNaar.etage){
             // Geen trappen!
 
-            int verschil = lokaalVan.nummer - lokaalNaar.nummer;
+            int verschil = lokaalVan.etage - lokaalNaar.etage;
             if(verschil < 0){
                 String richting = "omhoog";
             }else{
@@ -49,14 +50,15 @@ public class Route extends ActionBarActivity {
             }
 
             verschil = Math.abs(verschil);
-
+            Log.d("verschil", ""+verschil);
             while(verschil > 0){
                 Log.d("Marius", "Hallo?");
+                verschil--;
             }
 
         }
 
-        
+
 
 
     }
