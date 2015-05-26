@@ -22,6 +22,7 @@ public class Lokaal {
             if (lokaal.getString("naam").equals(lokaalNaam)) {
 
                 this.naam = lokaal.getString("naam");
+                //TODO: nummer as String instead of int because of e.g. "Aula"
                 this.nummer = lokaal.getInt("nummer");
                 this.schooldeel = lokaal.getString("schooldeel");
                 this.zijde = lokaal.getString("zijde");

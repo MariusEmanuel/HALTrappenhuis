@@ -6,18 +6,30 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import static co.birkhoff.haltrappenhuis.R.*;
+
 
 public class Route extends ActionBarActivity {
+
+    static String calcRoute(Lokaal lokaalVan, Lokaal lokaalNaar) {
+
+        if (lokaalNaar.naam.equals(lokaalVan.naam)) {
+            return "Je benr er al";
+        }
+
+
+        return null;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_route);
+        setContentView(layout.activity_route);
 
         String van = getIntent().getExtras().getString("van");
         String naar = getIntent().getExtras().getString("naar");
 
-        TextView data = (TextView) findViewById(R.id.data);
+        TextView data = (TextView) findViewById(id.data);
 
         //TODO: use van instead of "Lokaal 1"
         Lokaal lokaalNaar = new Lokaal("Lokaal 2");
@@ -25,6 +37,9 @@ public class Route extends ActionBarActivity {
 
         data.setText("schooldeel van: " + lokaalVan.schooldeel + "\nvan nummer: " + lokaalVan.nummer
                       + "schooldeel naar: " + lokaalNaar.schooldeel + "\nnaar nummer: " + lokaalNaar.nummer);
+
+        
+
 
     }
 
