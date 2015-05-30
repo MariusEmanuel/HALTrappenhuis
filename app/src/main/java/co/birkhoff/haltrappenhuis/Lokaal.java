@@ -11,7 +11,7 @@ import org.json.JSONObject;
  */
 public class Lokaal {
 
-    public Lokaal(String lokaalNaam) {
+    public Lokaal(String lokaalNaam) throws NullPointerException {
         final String TAG = "public Lokaal(String lokaalNaam)";
         this.lokaalNaam = lokaalNaam;
 
@@ -27,6 +27,13 @@ public class Lokaal {
                 this.schooldeel = lokaal.getString("schooldeel");
                 this.zijde = lokaal.getString("zijde");
                 this.etage = lokaal.getInt("etage");
+
+                if(this.nummer < 100) {
+                    this.gebouw = "hoofdgebouw";
+                } else if (this.nummer > 100) {
+                    this.gebouw = "avio";
+                }
+
             } else {
                 // TODO: remove one of the following:
                 Exception e = new Exception("error: lokaal.naam != naam");
@@ -40,7 +47,7 @@ public class Lokaal {
 
     public String naam,
             schooldeel,
-            zijde;
+            zijde, gebouw;
 
     public int nummer,
             etage;
@@ -56,7 +63,9 @@ public class Lokaal {
             "        {nummer: 4, naam: \"Lokaal 4\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"},\n" +
             "        {nummer: 5, naam: \"Lokaal 5\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"},\n" +
             "        {nummer: 6, naam: \"Lokaal 6\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"},\n" +
-            "        {nummer: 7, naam: \"Lokaal 7\", \"etage\": 3, schooldeel: \"oost\", zijde: \"noord\"}\n" +
+            "        {nummer: 7, naam: \"Lokaal 7\", \"etage\": 3, schooldeel: \"oost\", zijde: \"noord\"},\n" +
+            "        {nummer: 108, naam: \"Lokaal A8\", \"etage\": 3, schooldeel: \"oost\", zijde: \"noord\"}\n" + //nummer hoger dan 100 is in de avio bijv. 101 is A1
+
             "    ]\n" +
             "}";
 

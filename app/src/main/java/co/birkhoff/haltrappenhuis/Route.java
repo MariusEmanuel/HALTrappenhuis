@@ -7,21 +7,83 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static co.birkhoff.haltrappenhuis.R.*;
 
 
 public class Route extends ActionBarActivity {
 
-    static String calcRoute(Lokaal lokaalVan, Lokaal lokaalNaar) {
+    //Logic:
+    private static ArrayList<String> calcRoute(Lokaal lokaalVan, Lokaal lokaalNaar) {
+        ArrayList<String> stappen = new ArrayList<>();
 
-//        if (lokaalNaar.naam.equals(lokaalVan.naam)) {
-//            return "Je benr er al";
-//        }
+        if(lokaalVan.gebouw.equals("hoofdgebouw") && lokaalNaar.gebouw.equals("hoofdgebouw")) {
+            //van het hoofdgebouw naar het hoofdgebouw
+            if (lokaalNaar.naam.equals(lokaalVan.naam)) {
+                stappen.add("Je bent er al ;)");
+                return stappen;
+            }
+
+            if (lokaalVan.etage == lokaalNaar.etage) {
+                // Geen trappen!
+                if (lokaalVan.zijde.equals(lokaalNaar.zijde)) {
+                    if (lokaalVan.nummer < lokaalNaar.nummer) {
+                        stappen.add("Ga naar links/rechts");
+                        stappen.add(lokaalNaar.naam + " bevindt zich aan de linker/rechter kant"); //Ik ken de lokalen niet uit mijn hoofd
+                    } else if (lokaalNaar.nummer > lokaalVan.nummer) {
+                        stappen.add("Ga naar links/rechts");
+                        stappen.add(lokaalNaar.naam + " bevindt zich aan de linker/rechter kant");
+                    }
+                } else {
+                    if (lokaalVan.nummer < lokaalNaar.nummer) {
+                        stappen.add("Ga naar links/rechts");
+                        stappen.add(lokaalNaar.naam + " bevindt zich aan de linker/rechter kant");
+                    } else if (lokaalNaar.nummer > lokaalVan.nummer) {
+                        stappen.add("Ga naar links/rechts");
+                        stappen.add(lokaalNaar.naam + " bevindt zich aan de linker/rechter kant");
+                    }
+                }
+
+            } else {
+                //wel trappen
+
+                int verschil = lokaalVan.etage - lokaalNaar.etage;
+                if (verschil < 0) {
+                    String richting = "omhoog";
+                } else {
+                    String richting = "omlaag";
+                }
+
+                verschil = Math.abs(verschil);
+                Log.d("verschil", "" + verschil);
+                while (verschil > 0) {
+                    Log.d("Marius", "Hallo?");
+                    verschil--;
+                }
+            }
+        } else if (lokaalVan.equals("avio") && lokaalNaar.equals("avio")){
+            //van de avio naar de avio
+            stappen.add("Je wil van de avio naar de avio");
+        }
+        else if (lokaalVan.equals("avio")) {
+            //van de avio naar het hoofdgebouw
+            stappen.add("Je wil van de avio naar het hoofdgebouw");
+        } else if (lokaalNaar.equals("avio")) {
+            //van het hoofdgebouw naar de avio
+            stappen.add("Je wilvan het hoofdgebouw naar de avio");
+        }
 
 
-        return null;
+
+        stappen.add("Einde Routebeschrijving");
+
+        return stappen;
     }
 
+
+    //UI:
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,31 +94,31 @@ public class Route extends ActionBarActivity {
 
         TextView data = (TextView) findViewById(id.data);
 
-        //TODO: use van instead of "Lokaal 1"
-        Lokaal lokaalNaar = new Lokaal("Lokaal 7");
-        Lokaal lokaalVan = new Lokaal("Lokaal 1");
+        Lokaal lokaalNaar;
+        Lokaal lokaalVan;
+        try {
+            lokaalNaar = new Lokaal(van);
+            lokaalVan = new Lokaal(naar);
 
-        Log.d("hallo", "line 39");
+            Log.d("calcroute:", calcRoute(lokaalVan, lokaalNaar).toString());
 
+            ArrayList<String> stappen = calcRoute(lokaalVan, lokaalNaar);
 
-        if(lokaalVan.etage != lokaalNaar.etage){
-            // Geen trappen!
-
-            int verschil = lokaalVan.etage - lokaalNaar.etage;
-            if(verschil < 0){
-                String richting = "omhoog";
-            }else{
-                String richting = "omlaag";
+            StringBuilder routeTekst = new StringBuilder();
+            for (String stap : stappen) {
+                routeTekst.append(stap + "\n");
             }
 
-            verschil = Math.abs(verschil);
-            Log.d("verschil", ""+verschil);
-            while(verschil > 0){
-                Log.d("Marius", "Hallo?");
-                verschil--;
-            }
+            data.setText(routeTekst.toString());
 
+        } catch (Exception e) {
+            Log.d("error", "Lokaal does not exist");
+            e.printStackTrace();
+            data.setText("Het lokaal staat niet in de JSON, stuur aub een bug report");
         }
+
+
+
 
 
 

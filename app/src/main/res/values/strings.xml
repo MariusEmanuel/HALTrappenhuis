@@ -8,11 +8,17 @@
     <string name="naar_spinner_prompt">Waar wil je naartoe:</string>
     <string-array name="lokalen_array">
         <item>Aula</item>
-        <item>Lokaal 11</item>
-        <item>Lokaal A1</item>
+        <item>Lokaal 1</item>
+        <item>Lokaal 2</item>
+        <item>Lokaal 3</item>
+        <item>Lokaal 4</item>
+        <item>Lokaal 5</item>
+        <item>Lokaal 6</item>
+        <item>Lokaal 7</item>
     </string-array>
     <string name="title_activity_route">Route</string>
     <string name="naarTekst">Waar wil je naartoe?</string>
     <string name="vanTekst">Waar kom je vandaan?</string>
     <string name="titel">Het Trappenhuis!</string>
+    <string name="jeBentErAl">Je bent er al</string>
 </resources>
