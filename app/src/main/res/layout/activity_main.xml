@@ -1,13 +1,8 @@
-<LinearLayout
-    android:background="@color/background"
-    android:layout_height="fill_parent"
-    android:layout_width="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <ScrollView
+ <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:background="@color/background">
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -81,6 +76,4 @@
 
         </LinearLayout>
 
-    </ScrollView>
-
-</LinearLayout>
+ </ScrollView>

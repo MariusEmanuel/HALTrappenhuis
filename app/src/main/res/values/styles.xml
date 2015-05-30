@@ -6,12 +6,18 @@
 
         <!--Statusbar color on lollipop:-->
         <item name="colorPrimaryDark">@color/background</item>
-
+        <item name="colorPrimary">@color/background</item>
         <!--Spinner styles:-->
         <item name="android:spinnerItemStyle">@style/SpinnerItem</item>
         <item name="android:spinnerDropDownItemStyle">@style/SpinnerItem.DropDownItem</item>
 
      </style>
+
+    <style name="AppTheme.ActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimaryDark">@color/background</item>
+        <item name="colorPrimary">@color/background</item>
+    </style>
+
 
 
     <!--Spinner styles:-->

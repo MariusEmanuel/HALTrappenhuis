@@ -92,7 +92,9 @@ public class Route extends ActionBarActivity {
         String van = getIntent().getExtras().getString("van");
         String naar = getIntent().getExtras().getString("naar");
 
+        TextView title = (TextView) findViewById(id.title);
         TextView data = (TextView) findViewById(id.data);
+
 
         Lokaal lokaalNaar;
         Lokaal lokaalVan;
@@ -105,10 +107,16 @@ public class Route extends ActionBarActivity {
             ArrayList<String> stappen = calcRoute(lokaalVan, lokaalNaar);
 
             StringBuilder routeTekst = new StringBuilder();
+            int i = 1;
             for (String stap : stappen) {
-                routeTekst.append(stap + "\n");
+                routeTekst.append(i + ". " + stap + "\n");
+                i++;
             }
 
+            StringBuilder titleText = new StringBuilder();
+            titleText.append("Route van " + lokaalVan.naam + " naar " + lokaalNaar.naam + ":");
+
+            title.setText(titleText);
             data.setText(routeTekst.toString());
 
         } catch (Exception e) {
@@ -116,20 +124,13 @@ public class Route extends ActionBarActivity {
             e.printStackTrace();
             data.setText("Het lokaal staat niet in de JSON, stuur aub een bug report");
         }
-
-
-
-
-
-
-
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_route, menu);
+//        getMenuInflater().inflate(R.menu.menu_route, menu);
         return true;
     }
 
