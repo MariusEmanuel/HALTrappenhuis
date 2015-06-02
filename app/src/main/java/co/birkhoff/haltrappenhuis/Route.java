@@ -30,11 +30,11 @@ public class Route extends ActionBarActivity {
                 // Geen trappen!
                 if (lokaalVan.zijde.equals(lokaalNaar.zijde)) {
                     if (lokaalVan.nummer < lokaalNaar.nummer) {
-                        stappen.add("Ga naar links/rechts");
-                        stappen.add(lokaalNaar.naam + " bevindt zich aan de linker/rechter kant"); //Ik ken de lokalen niet uit mijn hoofd
+                        stappen.add("Ga naar links");
+                        stappen.add(lokaalNaar.naam + " bevindt zich aan de linker kant"); //Ik ken de lokalen niet uit mijn hoofd
                     } else if (lokaalNaar.nummer > lokaalVan.nummer) {
-                        stappen.add("Ga naar links/rechts");
-                        stappen.add(lokaalNaar.naam + " bevindt zich aan de linker/rechter kant");
+                        stappen.add("Ga naar rechts");
+                        stappen.add(lokaalNaar.naam + " bevindt zich aan de rechter kant");
                     }
                 } else {
                     if (lokaalVan.nummer < lokaalNaar.nummer) {
