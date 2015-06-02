@@ -31,7 +31,11 @@ public class Route extends ActionBarActivity {
                 if (lokaalVan.zijde.equals(lokaalNaar.zijde)) {
                     if (lokaalVan.nummer < lokaalNaar.nummer) {
                         stappen.add("Ga naar links");
+<<<<<<< HEAD
                         stappen.add(lokaalNaar.naam + " bevindt zich aan de linker kant"); //Ik ken de lokalen niet uit mijn hoofd
+=======
+                        stappen.add(lokaalNaar.naam + " bevindt zich aan de linkerkant"); //Ik ken de lokalen niet uit mijn hoofd
+>>>>>>> origin/master
                     } else if (lokaalNaar.nummer > lokaalVan.nummer) {
                         stappen.add("Ga naar rechts");
                         stappen.add(lokaalNaar.naam + " bevindt zich aan de rechter kant");
@@ -49,19 +53,16 @@ public class Route extends ActionBarActivity {
             } else {
                 //wel trappen
 
-                int verschil = lokaalVan.etage - lokaalNaar.etage;
-                if (verschil < 0) {
-                    String richting = "omhoog";
+                int verschil = lokaalNaar.etage - lokaalVan.etage;
+                String richting;
+                if (verschil > 0) {
+                    richting = "omhoog";
                 } else {
-                    String richting = "omlaag";
+                    richting = "omlaag";
                 }
-
                 verschil = Math.abs(verschil);
-                Log.d("verschil", "" + verschil);
-                while (verschil > 0) {
-                    Log.d("Marius", "Hallo?");
-                    verschil--;
-                }
+                stappen.add("Ga " + verschil + " trappen omlaag.");
+
             }
         } else if (lokaalVan.equals("avio") && lokaalNaar.equals("avio")){
             //van de avio naar de avio
