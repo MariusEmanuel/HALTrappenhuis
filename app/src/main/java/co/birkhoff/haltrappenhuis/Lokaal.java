@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by emanuelkuhn on 12-05-15.
+ * Created by emanuelkuhn en mariusbirkhoff on 12-05-15.
  */
 public class Lokaal {
 
