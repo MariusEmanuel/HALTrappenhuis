@@ -14,10 +14,59 @@ import static co.birkhoff.haltrappenhuis.R.*;
 
 
 public class Route extends ActionBarActivity {
+    private class Location {
+        int x, y, z;
+        int xyz;
+        public Location (int x, int y, int z) {
+            this.x = x;
+            this.y = y;
+            this.z = z;
+            this.xyz = this.x + 100 * this.y + 1000 * this.z; //altijd uniek
+        }
+
+        public Location (Lokaal lokaal) {
+            this.x = lokaal.x;
+            this.y = lokaal.y;
+            this.z = lokaal.z;
+            this.xyz = this.x + 100 * this.y + 1000 * this.z; //altijd uniek
+        }
+    }
+
 
     //Logic:
-    private static ArrayList<String> calcRoute(Lokaal lokaalVan, Lokaal lokaalNaar) {
+    private ArrayList<String> calcRoute(Lokaal lokaalVan, Lokaal lokaalNaar) {
         ArrayList<String> stappen = new ArrayList<>();
+        Location currentLocation = new Location(lokaalVan);
+        Location destination = new Location(lokaalNaar);
+        Location nextDesination;
+        nextDesination = new Location(3, 1, 4);
+        nextDesination = new Location(5, 3, 2);
+
+        String currentDirection = ""; //e.g.: "west":
+
+        if (lokaalNaar.naam.equals(lokaalVan.naam)) {
+            stappen.add("Je bent er al ;)");
+            return stappen;
+        }
+
+        int i = 0;
+        while (true) {
+            if(currentLocation.xyz == destination.xyz) {
+                break;
+            } else if(currentLocation.z == destination.z) {
+                //geen trappen
+
+            }
+
+
+            i++;
+            if(i > 1000) {
+                stappen.add("De while-loop is te lang. Route kon niet worden berekend.");
+                Exception  e = new Exception("De while-loop is te lang. Route kon niet worden berekend.");
+                e.printStackTrace();
+                break;
+            }
+        }
 
         if(lokaalVan.gebouw.equals("hoofdgebouw") && lokaalNaar.gebouw.equals("hoofdgebouw")) {
             //van het hoofdgebouw naar het hoofdgebouw
@@ -94,12 +143,19 @@ public class Route extends ActionBarActivity {
         TextView data = (TextView) findViewById(id.data);
 
 
-        Lokaal lokaalNaar;
-        Lokaal lokaalVan;
+        Lokaal lokaalNaar = null;
+        Lokaal lokaalVan = null;
         try {
             lokaalNaar = new Lokaal(van);
             lokaalVan = new Lokaal(naar);
 
+        } catch (Exception e) {
+            Log.d("error", "Lokaal does not exist");
+            e.printStackTrace();
+            data.setText("Het lokaal staat niet in de JSON, stuur aub een bug report");
+        }
+
+        if(lokaalVan != null && lokaalNaar != null) {
             Log.d("calcroute:", calcRoute(lokaalVan, lokaalNaar).toString());
 
             ArrayList<String> stappen = calcRoute(lokaalVan, lokaalNaar);
@@ -116,11 +172,6 @@ public class Route extends ActionBarActivity {
 
             title.setText(titleText);
             data.setText(routeTekst.toString());
-
-        } catch (Exception e) {
-            Log.d("error", "Lokaal does not exist");
-            e.printStackTrace();
-            data.setText("Het lokaal staat niet in de JSON, stuur aub een bug report");
         }
     }
 
