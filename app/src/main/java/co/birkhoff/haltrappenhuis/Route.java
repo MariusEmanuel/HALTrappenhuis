@@ -31,11 +31,9 @@ public class Route extends ActionBarActivity {
                 if (lokaalVan.zijde.equals(lokaalNaar.zijde)) {
                     if (lokaalVan.nummer < lokaalNaar.nummer) {
                         stappen.add("Ga naar links");
-<<<<<<< HEAD
                         stappen.add(lokaalNaar.naam + " bevindt zich aan de linker kant"); //Ik ken de lokalen niet uit mijn hoofd
-=======
                         stappen.add(lokaalNaar.naam + " bevindt zich aan de linkerkant"); //Ik ken de lokalen niet uit mijn hoofd
->>>>>>> origin/master
+
                     } else if (lokaalNaar.nummer > lokaalVan.nummer) {
                         stappen.add("Ga naar rechts");
                         stappen.add(lokaalNaar.naam + " bevindt zich aan de rechter kant");

@@ -35,7 +35,7 @@ public class MainActivity extends ActionBarActivity {
 
                 //Open activity Route
 
-                Intent intent = new Intent(MainActivity.this, Route.class);
+                Intent intent = new Intent(MainActivity.this, WifiTracking.class);
                 intent.putExtra("van",van);
                 intent.putExtra("naar", naar);
 
