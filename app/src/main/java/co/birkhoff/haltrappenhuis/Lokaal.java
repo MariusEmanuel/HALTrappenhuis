@@ -9,6 +9,7 @@ import org.json.JSONObject;
 /**
  * Created by emanuelkuhn en mariusbirkhoff on 12-05-15.
  */
+
 public class Lokaal {
 
     public Lokaal(String lokaalNaam) throws NullPointerException {
@@ -22,11 +23,12 @@ public class Lokaal {
             if (lokaal.getString("naam").equals(lokaalNaam)) {
 
                 this.naam = lokaal.getString("naam");
-                //TODO: nummer as String instead of int because of e.g. "Aula"
                 this.nummer = lokaal.getInt("nummer");
-                this.schooldeel = lokaal.getString("schooldeel");
                 this.zijde = lokaal.getString("zijde");
                 this.etage = lokaal.getInt("etage");
+                if(lokaal.has("schooldeel")) {
+                    this.schooldeel = lokaal.getString("schooldeel");
+                }
 
                 if(this.nummer < 100) {
                     this.gebouw = "hoofdgebouw";
@@ -46,11 +48,12 @@ public class Lokaal {
     }
 
     public String naam,
-            schooldeel,
             zijde, gebouw;
 
+    @Deprecated public String schooldeel;
+
     public int nummer,
-            etage;
+            etage, x, y;
 
 
     private final String lokaalNaam;
