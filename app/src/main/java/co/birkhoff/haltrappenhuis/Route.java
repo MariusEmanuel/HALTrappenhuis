@@ -39,8 +39,6 @@ public class Route extends ActionBarActivity {
         Location currentLocation = new Location(lokaalVan);
         Location destination = new Location(lokaalNaar);
         Location nextDesination;
-        nextDesination = new Location(3, 1, 4);
-        nextDesination = new Location(5, 3, 2);
 
         String currentDirection = ""; //e.g.: "west":
 
@@ -50,6 +48,7 @@ public class Route extends ActionBarActivity {
         }
 
         int i = 0;
+        /*
         while (true) {
             if(currentLocation.xyz == destination.xyz) {
                 break;
@@ -67,6 +66,7 @@ public class Route extends ActionBarActivity {
                 break;
             }
         }
+        */
 
         if(lokaalVan.gebouw.equals("hoofdgebouw") && lokaalNaar.gebouw.equals("hoofdgebouw")) {
             //van het hoofdgebouw naar het hoofdgebouw
