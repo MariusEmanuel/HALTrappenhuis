@@ -1,10 +1,10 @@
 {
     lokalen: [
-        {nummer: 1, naam: "Lokaal 1", "etage": 4, schooldeel: "midden", zijde: "zuid"},
-        {nummer: 2, naam: "Lokaal 2", "etage": 4, schooldeel: "midden", zijde: "zuid"},
-        {nummer: 3, naam: "Lokaal 3", "etage": 4, schooldeel: "midden", zijde: "zuid"},
-        {nummer: 4, naam: "Lokaal 4", "etage": 4, schooldeel: "midden", zijde: "noord"},
-        {nummer: 5, naam: "Lokaal 5", "etage": 4, schooldeel: "midden", zijde: "noord"},
-        {nummer: 6, naam: "Lokaal 6", "etage": 4, schooldeel: "midden", zijde: "noord"}
+        {nummer: 1, naam: "Lokaal 1", "etage": 4, schooldeel: 2, zijde: "zuid"},
+        {nummer: 2, naam: "Lokaal 2", "etage": 4, schooldeel: 2, zijde: "zuid"},
+        {nummer: 3, naam: "Lokaal 3", "etage": 4, schooldeel: 2, zijde: "zuid"},
+        {nummer: 4, naam: "Lokaal 4", "etage": 4, schooldeel: 2, zijde: "noord"},
+        {nummer: 5, naam: "Lokaal 5", "etage": 4, schooldeel: 2, zijde: "noord"},
+        {nummer: 6, naam: "Lokaal 6", "etage": 4, schooldeel: 2, zijde: "noord"}
     ]
 }

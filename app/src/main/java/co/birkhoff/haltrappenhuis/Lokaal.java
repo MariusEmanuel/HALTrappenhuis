@@ -26,25 +26,12 @@ public class Lokaal {
                 this.naam = lokaal.getString("naam");
                 this.nummer = lokaal.getInt("nummer");
 
-                this.x = lokaal.getInt("x");
-                this.y = lokaal.getInt("y");
-                this.z = lokaal.getInt("z");
-
-                if(lokaal.has("zijde")) {
-                    this.zijde = lokaal.getString("zijde");
-                } else {
-                    if(this.y == 1)
-                        this.zijde = "zuid";
-                    else if(this.y == 2)
-                        this.zijde = "midden";
-                    else if (this.y == 3)
-                        this.zijde = "noord";
-                }
+                this.zijde = lokaal.getString("zijde");
 
                 this.etage = lokaal.getInt("etage");
 
                 if(lokaal.has("schooldeel")) {
-                    this.schooldeel = lokaal.getString("schooldeel");
+                    this.schooldeel = lokaal.getInt("schooldeel");
                 }
 
                 if(this.nummer < 100) {
@@ -66,23 +53,21 @@ public class Lokaal {
     public String naam,
             zijde, gebouw;
 
-    @Deprecated public String schooldeel;
+    public int schooldeel;
 
     public int nummer,
             etage, x, y, z;
 
-    @Deprecated
     private static String lokalenJson = "{\n" +
             "    lokalen: [\n" +
-            "        {nummer: 1, naam: \"Lokaal 1\", \"etage\": 4, schooldeel: \"midden\", zijde: \"zuid\"},\n" +
-            "        {nummer: 2, naam: \"Lokaal 2\", \"etage\": 4, schooldeel: \"midden\", zijde: \"zuid\"},\n" +
-            "        {nummer: 3, naam: \"Lokaal 3\", \"etage\": 4, schooldeel: \"midden\", zijde: \"zuid\"},\n" +
-            "        {nummer: 4, naam: \"Lokaal 4\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"},\n" +
-            "        {nummer: 5, naam: \"Lokaal 5\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"},\n" +
-            "        {nummer: 6, naam: \"Lokaal 6\", \"etage\": 4, schooldeel: \"midden\", zijde: \"noord\"},\n" +
-            "        {nummer: 7, naam: \"Lokaal 7\", \"etage\": 3, schooldeel: \"oost\", zijde: \"noord\"},\n" +
-            "        {nummer: 108, naam: \"Lokaal A8\", \"etage\": 3, schooldeel: \"oost\", zijde: \"noord\"}\n" + //nummer hoger dan 100 is in de avio bijv. 101 is A1
-
+            "        {nummer: 1, naam: \"Lokaal 1\", \"etage\": 4, schooldeel: 2, zijde: \"zuid\"},\n" +
+            "        {nummer: 2, naam: \"Lokaal 2\", \"etage\": 4, schooldeel: 2, zijde: \"zuid\"},\n" +
+            "        {nummer: 3, naam: \"Lokaal 3\", \"etage\": 4, schooldeel: 2, zijde: \"zuid\"},\n" +
+            "        {nummer: 4, naam: \"Lokaal 4\", \"etage\": 4, schooldeel: 2, zijde: \"noord\"},\n" +
+            "        {nummer: 5, naam: \"Lokaal 5\", \"etage\": 4, schooldeel: 2, zijde: \"noord\"},\n" +
+            "        {nummer: 6, naam: \"Lokaal 6\", \"etage\": 4, schooldeel: 2, zijde: \"noord\"}\n" +
+            "        {nummer: 8, naam: \"Lokaal 8\", \"etage\": 3, schooldeel: 2, zijde: \"zuid\"}\n" +
+            "        {nummer: 14, naam: \"Lokaal 14\", \"etage\": 3, schooldeel: 1, zijde: \"noord\"}\n" +
             "    ]\n" +
             "}";
 
