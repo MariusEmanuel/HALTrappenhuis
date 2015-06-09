@@ -30,17 +30,73 @@ public class Route extends ActionBarActivity {
             this.z = lokaal.z;
             this.xyz = this.x + 100 * this.y + 1000 * this.z; //altijd uniek
         }
+
+        public Location (Location location) {
+            this.x = location.x;
+            this.y = location.y;
+            this.z = location.z;
+            this.xyz = this.x + 100 * this.y + 1000 * this.z; //altijd uniek
+
+        }
     }
 
 
     //Logic:
+    private String turnLeftRight(Location currentLocation, Location nextDestination, String currentDirection) {
+        String goToDirection;
+        if(Math.abs(currentLocation.x - nextDestination.x) > 2) {
+            if (currentLocation.y == 3 || currentLocation.y == 1) {
+
+            }
+        } else {
+
+        }
+
+        return "error in turnLeftRight";
+    }
+
+
+//    private String goFurther (Location currentLocation, Location nextDestination, String currentDirection) {
+//        String goToDirection;
+//        if (currentLocation.x - nextDestination.x > 2) {
+//            //goWest
+//            goToDirection = "west";
+//        } else { // if (currentLocation.x - nextDestination.x < -2)
+//            //goEast
+//            goToDirection = "east";
+//        }
+//
+//        if (currentDirection.equals(goToDirection)) {
+//            //ga rechtdoor
+//        } else if (currentDirection.equals("west") || currentDirection.equals("east")) {
+//            //draai om
+//        } else {
+//            //ga links / rechts
+//        }
+//        return "";
+//    }
+
     private ArrayList<String> calcRoute(Lokaal lokaalVan, Lokaal lokaalNaar) {
         ArrayList<String> stappen = new ArrayList<>();
         Location currentLocation = new Location(lokaalVan);
         Location destination = new Location(lokaalNaar);
         Location nextDesination;
+        Location nextDestination = new Location(destination);
+        String facingDirection; //e.g.: "west":
+        if(lokaalVan.y == 1) {
+            facingDirection = "north";
+        } else if(lokaalVan.y == 3) {
+            facingDirection = "south";
+        } else {
+//            if (lokaalVan.nummer == 24)
+        }
 
-        String currentDirection = ""; //e.g.: "west":
+        //x=1 :  west
+        //x=12 :  oost
+        //y=1 : zuid
+        //y=2 : midden
+        //y=3 : noord
+
 
         if (lokaalNaar.naam.equals(lokaalVan.naam)) {
             stappen.add("Je bent er al ;)");
@@ -146,8 +202,8 @@ public class Route extends ActionBarActivity {
         Lokaal lokaalNaar = null;
         Lokaal lokaalVan = null;
         try {
-            lokaalNaar = new Lokaal(van);
-            lokaalVan = new Lokaal(naar);
+            lokaalNaar = new Lokaal(naar);
+            lokaalVan = new Lokaal(van);
 
         } catch (Exception e) {
             Log.d("error", "Lokaal does not exist");
