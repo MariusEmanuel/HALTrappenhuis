@@ -30,14 +30,16 @@ public class Lokaal {
 
                 this.etage = lokaal.getInt("etage");
 
-                if(lokaal.has("schooldeel")) {
-                    this.schooldeel = lokaal.getInt("schooldeel");
-                }
-
-                if(this.nummer < 100) {
-                    this.gebouw = "hoofdgebouw";
-                } else if (this.nummer > 100) {
-                    this.gebouw = "avio";
+                if(lokaal.getString("schooldeel").equals("west")) {
+                    this.schooldeel = 1;
+                } else if (lokaal.getString("schooldeel").equals("midden")) {
+                    this.schooldeel = 2;
+                } else if (lokaal.getString("schooldeel").equals("oost")) {
+                    this.schooldeel = 3;
+                } else if (lokaal.getString("schooldeel").equals("avio")) {
+                    this.schooldeel = 4;
+                }else {
+                    Log.d("Emanuel", "geen schooldeel gevonden");
                 }
 
             } else {
