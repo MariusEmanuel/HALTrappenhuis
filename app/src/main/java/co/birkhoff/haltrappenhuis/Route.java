@@ -85,6 +85,44 @@ public class Route extends ActionBarActivity {
                             }
                         }
                     }
+                }else{
+                    int x = lokaalNaar.etage - lokaalVan.etage;
+
+                    if(x < 0){
+                        addBevel("Ga, bij de dichtstbijzijnde trap, " + Math.abs(x) + " trappen omlaag!");
+                    }else{
+                        addBevel("Ga, bij de dichtstbijzijnde trap, " + Math.abs(x) + " trappen omhoog!");
+                    }
+
+                    if(lokaalNaar.schooldeel == lokaalVan.schooldeel){
+                        if(lokaalNaar.zijde.equals("zuid")){
+                            addBevel("Het lokaal bevindt zich in dit schooldeel aan de kant van de trap!");
+                        }else{
+                            addBevel("Het lokaal bevindt zich in dit schooldeel aan de overkant van de trap!");
+                        }
+                    }else{
+                        if(lokaalNaar.schooldeel > lokaalVan.schooldeel){
+                            addBevel("Loop richting het oosten!");
+                            if(lokaalNaar.zijde.equals("noord")){
+                                addBevel("Het lokaal bevindt zich aan de linker kant!");
+                            }else if(lokaalNaar.zijde.equals("midden")){
+                                addBevel("Het lokaal bevindt zich aan het einde van de gang!");
+                            }else{
+                                addBevel("Het lokaal bevindt zich aan de rechter kant!");
+                            }
+                        }else{
+                            addBevel("Loop richting het westen!");
+                            if(lokaalNaar.zijde.equals("zuid")){
+                                addBevel("Het lokaal bevindt zich aan de linker kant!");
+
+                            }else if(lokaalNaar.zijde.equals("midden")){
+                                addBevel("Het lokaal bevindt zich aan het einde van de gang!");
+                            }else{
+                                addBevel("Het lokaal bevindt zich aan de rechter kant!");
+                            }
+                        }
+                    }
+
                 }
             }
         }catch (Exception e){
